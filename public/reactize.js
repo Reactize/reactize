@@ -1,5 +1,5 @@
 /**
- * Reactize v0.4.2
+ * Reactize v0.4.3
  */
 (function(exports) {
   var Reactize = {};
@@ -35,7 +35,6 @@
   Reactize.htmlToJsx = function(html) {
     html = html.replace(CLASS_NAME_REGEX, " className=");
     html = html.replace(INPUT_TAG_WITH_VALUE_REGEX, "$1 defaultValue=$2 $3")
-    debugger;
     return html = html.replace(CLOSING_TAG_REGEX, "$1$2 /$3")
   };
 
