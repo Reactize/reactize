@@ -1,0 +1,26 @@
+{
+  "name": "reactize",
+  "version": "0.2.0",
+  "description": "This is a mix of Virtual-DOM, HTML-TO-VDOM, that applies DOM \"diffs\" without any server configuration—it just needs plain old HTML.",
+  "main": "./public/dist/reactize.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reactize/reactize.git"
+  },
+  "keywords": [
+    "virtual-dom"
+  ],
+  "author": "Morgan Hallgren <morgan.hallgren@gmail.com>",
+  "license": "Apache",
+  "bugs": {
+    "url": "https://github.com/reactize/reactize/issues"
+  },
+  "homepage": "https://github.com/reactize/reactize",
+  "dependencies": {
+    "virtual-dom": "",
+    "html-to-vdom ": ""
+  }
+}
