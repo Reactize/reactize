@@ -8,8 +8,6 @@ var convertHTML = require('html-to-vdom')({
     VText: VText
 });
 
-var bodyVTree = {};
-
 var Reactize = {
   version: "0.5.0"
 };
