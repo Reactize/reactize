@@ -8,15 +8,22 @@ var convertHTML = require('html-to-vdom')({
     VText: VText
 });
 
+var vTrees = {};
+
 var Reactize = {
-  version: "0.5.0"
+  version: "0.0.1"
 };
 
 Reactize.applyDiff = function(replacementElement, targetElement) {
   var replacementVtree = convertHTML(replacementElement.outerHTML.trim());
-  var patches = diff(bodyVTree, replacementVtree);
+  var patches = diff(vTrees[targetElement.id], replacementVtree);
   targetElement = patch(targetElement, patches);
-  bodyVTree = replacementVtree;
+  vTrees[targetElement.id] = replacementVtree;
+};
+
+Reactize.initialize = function(element) {
+  var vTree = convertHTML(element.outerHTML.trim());
+  vTrees[element.id] = vTree;
 };
 
 module.exports = global.Reactize = Reactize;
