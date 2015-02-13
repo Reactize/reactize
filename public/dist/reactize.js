@@ -7658,25 +7658,32 @@ var convertHTML = require('html-to-vdom')({
 var vTrees = {};
 
 var Reactize = {
-  version: "0.0.1"
+  version: "0.0.2"
+};
+
+Reactize.initialize = function(element) {
+  var vTree = convertHTML(element.innerHTML.trim());
+  vTrees[element.id] = vTree;
 };
 
 Reactize.applyDiff = function(replacementElement, targetElement) {
-  debugger;
-  var replacementVtree = convertHTML(replacementElement.outerHTML.trim());
+  var replacementVtree = convertHTML(replacementElement.innerHTML.trim());
   var patches = diff(vTrees[targetElement.id], replacementVtree);
   targetElement = patch(targetElement, patches);
   vTrees[targetElement.id] = replacementVtree;
 };
 
-Reactize.initialize = function(element) {
-  debugger;
-  var vTree = convertHTML(element.outerHTML.trim());
-  vTrees[element.id] = vTree;
-};
+Reactize.applyDiffFromHTMLString = function(htmlString, targetElement) {
+    debugger;
+    var replacementElement = document.createElement('div');
+    //var ghostElement = document.createElement('div');
+    //replacementElement.appendChild(ghostElement);
+    //ghostElement.outerHTML = htmlString;
+    replacementElement.innerHTML = htmlString;
+    Reactize.applyDiff(replacementElement, targetElement);
+  };
 
 module.exports = global.Reactize = Reactize;
-
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"html-to-vdom":1,"virtual-dom/diff":43,"virtual-dom/patch":47,"virtual-dom/vnode/vnode":61,"virtual-dom/vnode/vtext":63}],67:[function(require,module,exports){
 

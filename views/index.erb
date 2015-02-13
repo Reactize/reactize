@@ -5,7 +5,11 @@
     <title>HTML5 Test Page</title>
     <script src="/dist/reactize.js"></script>
     <script type="text/javascript">
-        window.onload = function(){ Reactize.initialize(document.body); Reactize.applyDiff(document.body, document.body);}
+        window.onload = function(){ 
+            Reactize.initialize(document.body);
+            Reactize.applyDiff(document.body, document.body);
+            Reactize.applyDiffFromHTMLString(document.body.innerHTML, document.body);
+        }
     </script>
 </head>
 <body id="test">
