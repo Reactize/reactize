@@ -1,0 +1,19 @@
+{
+  "name": "reactize",
+  "version": "0.5.0",
+  "description": "react with html",
+  "main": "public/reactize.min.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "htmltojsx": "^0.2.1",
+    "react": "^0.13.0",
+    "react-tools": "^0.13.0"
+  }
+}
